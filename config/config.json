@@ -1,0 +1,24 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "darthVadersUnderwear9!",
+    "database": "music_tour",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "port": "5432"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "darthVadersUnderwear9!",
+    "database": "music_tour",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "darthVadersUnderwear9!",
+    "database": "music_tour",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}

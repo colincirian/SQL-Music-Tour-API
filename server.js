@@ -8,21 +8,6 @@ require('dotenv').config()
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-// SEQUELIZE CONNECTION
-const sequelize = new Sequelize({
-    storage: process.env.PG_URI,
-    dialect: 'postgres',
-    username: 'postgres',
-    password: process.env.PG_PASS
-})
-
-try {
-    sequelize.authenticate();
-    console.log("Connected to postgres!")
-} catch(err) {
-    console.log(`Unable to connect to postgres: ${err}`)
-}
-
 // ROOT
 app.get('/', (req, res) => {
     res.status(200).json({
@@ -30,7 +15,12 @@ app.get('/', (req, res) => {
     })
 })
 
+// CONTROLLERS 
+const bandsController = require('./controllers/bands_controller')
+app.use('/bands', bandsController)
+
 // LISTEN
 app.listen(process.env.PORT, () => {
-    console.log(`🎸 Rocking' on port: ${process.env.PORT}`)
+    console.log(`🎸 Rockin' on port: ${process.env.PORT}`)
 })
+
